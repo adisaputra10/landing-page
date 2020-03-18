@@ -1,6 +1,7 @@
 env.DOCKER_REGISTRY = 'nurwahid'
 env.DOCKER_IMAGE_NAME = 'landing_page'
 node('master') {
+  pollSCM(env.BRANCH_NAME == 'master' ? '* * * * *'   : '')
     stage('Git Pull') {
           checkout scm
     }
