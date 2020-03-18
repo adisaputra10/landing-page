@@ -4,7 +4,7 @@ pipeline {
     
     agent none
     triggers {
-     pollSCM(env.BRANCH_NAME == 'master' ? '* * * * *' : env.BRANCH_NAME == 'release' ? '* * * * *' : '')
+     pollSCM(env.BRANCH_NAME == 'master' ? '* * * * *' :   '')
     }
     options {
         skipDefaultCheckout()
