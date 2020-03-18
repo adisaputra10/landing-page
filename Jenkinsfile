@@ -15,6 +15,7 @@ node('master') {
           stage('Deploy to Server') {
               sh 'sed -i "s/BUILD_NUMBER/$BUILD_NUMBER/g" landingpage.yaml'
               sh "kubectl apply -f landingpage.yaml"
+              sh "kubectl --namespace=development get deployment"
          // sh "kubctl apply -f deployment"
     }
     stage('Remove Docker Image') {
