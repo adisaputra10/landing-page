@@ -13,6 +13,8 @@ node('master') {
           sh "docker push $DOCKER_REGISTRY/$DOCKER_IMAGE_NAME:${BUILD_NUMBER}"
     }
           stage('Deploy to Server') {
+              sh 'sed -i "s/BUILD_NUMBER/$BUILD_NUMBER/g" landingpage.yaml'
+              sh "kubectl apply -f landingpage.yaml"
          // sh "kubctl apply -f deployment"
     }
     stage('Remove Docker Image') {
