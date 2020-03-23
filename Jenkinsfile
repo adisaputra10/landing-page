@@ -38,6 +38,10 @@ pipeline {
                 sh 'sed -i "s/BUILD_NUMBER/$BUILD_NUMBER/g" landingpage.yaml'
               //sh "kubectl apply -f landingpage.yaml"
               //sh "kubectl --namespace=development get deployment"
+                
+                   timeout(10) {
+            input message: 'Deploy to PRODUCTION?', ok: 'Deploy'
+        }
               
             }
         }
