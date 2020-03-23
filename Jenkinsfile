@@ -36,8 +36,8 @@ pipeline {
             steps {
               
                 sh 'sed -i "s/BUILD_NUMBER/$BUILD_NUMBER/g" landingpage.yaml'
-              sh "kubectl apply -f landingpage.yaml"
-              sh "kubectl --namespace=development get deployment"
+              //sh "kubectl apply -f landingpage.yaml"
+              //sh "kubectl --namespace=development get deployment"
               
             }
         }
